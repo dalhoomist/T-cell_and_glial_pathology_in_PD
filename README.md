@@ -39,13 +39,15 @@ Parameter
 [--input]  # Directory for both the enrichment matrices and adjacency matrices.
 [--output] # Directory for output
 [--order]  # The order of adjacency matrices
-[--n]      # The number of CPU cores.
+[--n]      # The number of parallel processes.
 ```
-* Using more CPUs does not guarantee a reduction in processing time.
- 
-* Increasing the number of CPUs beyond a certain point may result in diminishing returns or even performance degradation due to overhead, such as inter-process communication.
+* By default, this module tries to utilize all available CPU cores for parallel execution of processes for efficient utilization.
 
-* Due to current technical limitations, the number of CPU cores is limited to the number of rows in the Enrichment matrices(`nrow`). Even if you input a number exceeding `nrow`, the command will be executed with  [--n] set to `nrow`.
+* Using a higher number of parallel processes does not guarantee a reduction in processing time.
+ 
+* Increasing the number of parallel processes beyond a certain point may result in diminishing returns or even performance degradation due to overhead, such as inter-process communication.
+
+* Due to current technical limitations, the number of parallel processes is limited to the number of rows in the Enrichment matrices(`nrow`). Even if you input a number exceeding `nrow`, the command will be executed with  [--n] set to `nrow`
 
 ## Data Format - input
 - Please ensure that the order of barcode names matches for both matrices.
