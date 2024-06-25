@@ -2,7 +2,7 @@
 Code and data for The spatial landscape of glial pathology and adaptive immune response in Parkinson's Disease 
 
 # Spatial cross-correlation
-This is a Python module for GPU-accelerated computing of spatial cross-correlation.
+This is a Python module for spatial cross-correlation analyses
 
 <img src="ssc_image.png" width=1000/>
 
@@ -15,22 +15,9 @@ $ git clone https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD.git
 Requirement
 ```bash
 OS: Ubuntu Linux
-CUDA Toolkit: v11.2
 Python: 3.6.13
-Numpy: 1.21.5
-Pandas: 1.3.5
-```
-
-Installing CuPy
-Package names are different depending on your CUDA Toolkit version.
-
-v11.2 ~ 11.8 (x86_64 / aarch64)
-```bash
-pip install cupy-cuda11x
-```
-v12.x (x86_64 / aarch64)
-```bash
-pip install cupy-cuda12x
+Numpy: 1.18.5
+Pandas: 1.1.5
 ```
 
 You can build the environment with Anaconda(or miniconda):
@@ -46,25 +33,21 @@ $ conda activate scc
 - As the sample outputs are already stored in the sample_data folder, executing a command for sample data will cause the program to terminate immediately upon initiation.
 - To observe normal operation, delete some output from the path ['sample_data/out/1'].
 ```bash
-(scc) $ python scc_cupy.py --input sample_data/ --output sample_data/out/ --order 1 --n 10
+(scc) $ python scc.py --input sample_data/ --output sample_data/out/ --order 1 --n 10
 ```
-
-## Usage - Multi-GPU
-```bash
-(scc) $ python scc_cupy.py --input sample_data/ --output sample_data/out/ --order 1 --n 40 --gpu 0 1
-```
-
 Parameter
 ```bash
 [--input]  # Directory for both the enrichment matrices and adjacency matrices.
 [--output] # Directory for output
 [--order]  # The order of adjacency matrices
 [--n]      # The number of parallel processes.
-[--gpu]    # Assign GPU ID for GPU processing or multi-GPU processing.
 ```
+* By default, this module tries to utilize all available CPU cores for parallel execution of processes for efficient utilization.
 
 * Using a higher number of parallel processes does not guarantee a reduction in processing time. Increasing the number of parallel processes beyond a certain point may result in diminishing returns or even performance degradation due to overhead, such as inter-process communication.
-  
+
+* Due to current technical limitations, the number of parallel processes is limited to the number of rows in the Enrichment matrices(`nrow`). Even if you input a number exceeding `nrow`, the command will be executed with  [--n] set to `nrow`
+
 ## Data Format - input
 - Please ensure that the order of barcode names matches for both matrices.
 - Datasets are expected to be prepared in a `csv` format.
