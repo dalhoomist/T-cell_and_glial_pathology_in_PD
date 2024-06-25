@@ -63,8 +63,6 @@ Parameter
 [--gpu]    # Assign GPU ID for GPU processing or multi-GPU processing.
 ```
 
-* Using a higher number of parallel processes does not guarantee a reduction in processing time. Increasing the number of parallel processes beyond a certain point may result in diminishing returns or even performance degradation due to overhead, such as inter-process communication.
-  
 ## Data Format - input
 - Please ensure that the order of barcode names matches for both matrices.
 - Datasets are expected to be prepared in a `csv` format.
