@@ -48,6 +48,12 @@ $ conda activate scc
 ```bash
 (scc) $ python scc.py --input sample_data/ --output sample_data/out/ --order 1 --n 10
 ```
+
+## Usage - Multi-GPU
+```bash
+(scc) $ python scc.py --input sample_data/ --output sample_data/out/ --order 1 --n 40 --gpu 0 1
+```
+
 Parameter
 ```bash
 [--input]  # Directory for both the enrichment matrices and adjacency matrices.
