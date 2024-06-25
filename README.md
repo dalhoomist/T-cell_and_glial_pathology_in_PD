@@ -46,12 +46,12 @@ $ conda activate scc
 - As the sample outputs are already stored in the sample_data folder, executing a command for sample data will cause the program to terminate immediately upon initiation.
 - To observe normal operation, delete some output from the path ['sample_data/out/1'].
 ```bash
-(scc) $ python scc.py --input sample_data/ --output sample_data/out/ --order 1 --n 10
+(scc) $ python scc_cupy.py --input sample_data/ --output sample_data/out/ --order 1 --n 10
 ```
 
 ## Usage - Multi-GPU
 ```bash
-(scc) $ python scc.py --input sample_data/ --output sample_data/out/ --order 1 --n 40 --gpu 0 1
+(scc) $ python scc_cupy.py --input sample_data/ --output sample_data/out/ --order 1 --n 40 --gpu 0 1
 ```
 
 Parameter
