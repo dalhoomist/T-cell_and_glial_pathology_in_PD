@@ -2,7 +2,7 @@
 Code and data for The spatial landscape of glial pathology and adaptive immune response in Parkinson's Disease 
 
 # Spatial cross-correlation
-This is a Python module for spatial cross-correlation analyses
+This is a Python module for GPU-accelerated computing of spatial cross-correlation.
 
 <img src="ssc_image.png" width=1000/>
 
@@ -15,9 +15,22 @@ $ git clone https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD.git
 Requirement
 ```bash
 OS: Ubuntu Linux
+CUDA Toolkit: v11.2
 Python: 3.6.13
-Numpy: 1.18.5
-Pandas: 1.1.5
+Numpy: 1.21.5
+Pandas: 1.3.5
+```
+
+Installing CuPy
+Package names are different depending on your CUDA Toolkit version.
+
+v11.2 ~ 11.8 (x86_64 / aarch64)
+```bash
+pip install cupy-cuda11x
+```
+v12.x (x86_64 / aarch64)
+```bash
+pip install cupy-cuda12x
 ```
 
 You can build the environment with Anaconda(or miniconda):
