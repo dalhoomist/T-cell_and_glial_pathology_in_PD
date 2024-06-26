@@ -10,7 +10,6 @@ This is a Python module for GPU-accelerated computing of spatial cross-correlati
 ```bash
 $ git clone https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD.git
 ```
-
 ## Set up Environment
 Requirement
 ```bash
@@ -21,7 +20,7 @@ Numpy: 1.21.5
 Pandas: 1.3.5
 ```
 
-# Installing CuPy
+## Installing CuPy
 Package names are different depending on your CUDA Toolkit version.
 
 v11.2 ~ 11.8 (x86_64 / aarch64)
@@ -33,7 +32,7 @@ v12.x (x86_64 / aarch64)
 pip install cupy-cuda12x
 ```
 
-*[Important] You can build the environment with Anaconda(or miniconda):
+# [Important] You can build the environment with Anaconda(or miniconda):
 ```bash
 $ conda env create -f environment.yml
 $ conda activate scc
