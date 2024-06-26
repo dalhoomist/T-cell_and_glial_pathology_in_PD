@@ -32,7 +32,7 @@ v12.x (x86_64 / aarch64)
 pip install cupy-cuda12x
 ```
 
-## [Important] If the GPU/CUDA environment is not set up, you can create it using Anaconda (or Miniconda), which will include all the necessary requirements.
+## [Important] If the GPU/CUDA environment is not set up, you can create it using Anaconda (or Miniconda), which includes all the necessary requirements.
 ```bash
 $ conda env create -f environment.yml
 $ conda activate scc
