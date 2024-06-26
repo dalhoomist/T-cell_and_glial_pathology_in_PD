@@ -32,7 +32,7 @@ v12.x (x86_64 / aarch64)
 pip install cupy-cuda12x
 ```
 
-# [Important] You can build the environment with Anaconda:
+## [Important] If the GPU/CUDA environment is not set up, you can create it using Anaconda (or Miniconda), which will include all the necessary requirements.
 ```bash
 $ conda env create -f environment.yml
 $ conda activate scc
@@ -149,6 +149,13 @@ sample_data/
   		    ├── ...
 		    └── ...
 ```
+## TIP
+
+If the GPU process in parallel remains in 'nvidia-smi' even after terminating the module, you can clear it with the following command in Linux bash.
+```bash
+sudo nvidia-smi | grep 'python' | awk '{ print $5 }' | xargs -n1 kill -9
+```
+
 ## Reference
 - Chen Y. (2015) A New Methodology of Spatial Cross-Correlation Analysis. PLoS ONE 10(5): e0126158. [doi:10.1371/journal.pone.0126158](https://doi.org/10.1371/journal.pone.0126158)
 - Jakubiak K. et al. (2024) The spatial landscape of glial pathology and T-cell response in Parkinson’s disease substantia nigra. bioRxiv 2024.01.08.574736; doi: https://doi.org/10.1101/2024.01.08.574736
