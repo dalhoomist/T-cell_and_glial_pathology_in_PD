@@ -16,7 +16,7 @@ Requirement
 ```bash
 OS: Ubuntu Linux
 CUDA Toolkit: v11.2
-Python: 3.6.13
+Python: 3.7
 Numpy: 1.21.5
 Pandas: 1.3.5
 ```
