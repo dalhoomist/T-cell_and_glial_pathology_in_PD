@@ -242,7 +242,7 @@ def ssc_cpu(num_processes,num,sample_name):
 parser = argparse.ArgumentParser(description='')
 args = param_args()
 
-sample_name = os.listdir(args.input + 'enrich/')
+sample_name = [f for f in os.listdir(args.input + 'enrich/') if f.endswith('.csv')]
 sample_name = [sn.split('.csv', 1)[0] for sn in sample_name]
 l = args.order
 num_processes = args.n
