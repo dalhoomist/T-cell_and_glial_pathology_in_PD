@@ -22,7 +22,7 @@ Pandas: 1.3.5
 
 You can build the environment with Anaconda(or miniconda):
 ```bash
-$ conda create -n scc python==3.6.13
+$ conda create -n scc python==3.7
 $ conda activate scc
 (scc) $ cd T-cell_and_glial_pathology_in_PD
 (scc) $ pip install -r requirements.txt
