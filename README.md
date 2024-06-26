@@ -32,8 +32,10 @@ v12.x (x86_64 / aarch64)
 pip install cupy-cuda12x
 ```
 
-## [Important] If the GPU/CUDA environment is not set up, you can create it using Anaconda (or Miniconda), which includes all the necessary requirements.
+## [Important] If the GPU/CUDA environment is not set up, you can create it using Anaconda (or Miniconda), which includes all the requirements.
 ```bash
+$ git clone https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD.git
+$ cd T-cell_and_glial_pathology_in_PD
 $ conda env create -f environment.yml
 $ conda activate scc
 ```
