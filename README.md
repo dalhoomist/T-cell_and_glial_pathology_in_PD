@@ -32,7 +32,7 @@ v12.x (x86_64 / aarch64)
 pip install cupy-cuda12x
 ```
 
-# [Important] You can build the environment with Anaconda(or miniconda):
+# [Important] You can build the environment with Anaconda:
 ```bash
 $ conda env create -f environment.yml
 $ conda activate scc
