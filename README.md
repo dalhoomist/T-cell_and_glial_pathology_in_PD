@@ -15,9 +15,9 @@ $ git clone https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD.git
 Requirement
 ```bash
 OS: Ubuntu Linux
-Python: 3.6.13
-Numpy: 1.18.5
-Pandas: 1.1.5
+Python: 3.7
+Numpy: 1.21.5
+Pandas: 1.3.5
 ```
 
 You can build the environment with Anaconda(or miniconda):
