@@ -31,7 +31,7 @@ $ conda activate scc
 ## Usage - sample data
 - This module, in case of interruption and resumption, skips the already computed part and proceeds with the remaining.
 - As the sample outputs are already stored in the sample_data folder, executing a command for sample data will cause the program to terminate immediately upon initiation.
-- To observe normal operation, delete some output from the path ['sample_data/out/1'].
+- To observe the normal operation, delete some output from the path ['sample_data/out/1'] and rerun it.
 ```bash
 (scc) $ python scc.py --input sample_data/ --output sample_data/out/ --order 1 --n 10
 ```
