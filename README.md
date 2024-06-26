@@ -151,7 +151,7 @@ sample_data/
 ```
 ## TIP
 
-If the GPU process in parallel remains in 'nvidia-smi' even after terminating the module, you can clear it with the following command in Linux bash.
+If the GPU process in parallel remains in 'nvidia-smi' even after terminating the module, you can clear it all at once with the following command in Linux bash.
 ```bash
 sudo nvidia-smi | grep 'python' | awk '{ print $5 }' | xargs -n1 kill -9
 ```
