@@ -54,10 +54,14 @@ def param_args():
 
 def scc_gpu(num_processes, num, sample_name, gpu_id):
     cp.cuda.Device(gpu_id).use()
-    print(type(gpu_id))
+    #print(type(gpu_id))
     df = pd.read_csv(args.input + 'enrich/' + sample_name + '.csv')
     adj_csv = pd.read_csv(args.input + 'adj_' + str(l) + '/' + sample_name + '.csv')
-    adj = np.asmatrix((adj_csv).values)
+    
+    try:
+        adj = np.asmatrix((adj_csv).drop(columns="Unnamed: 0").values)
+    except:
+        adj = np.asmatrix((adj_csv).values)
     
     pathways_name = list(np.concatenate(df[["Unnamed: 0"]].values.tolist()))
     pathways = np.asmatrix(df.drop(columns="Unnamed: 0").values)
@@ -103,8 +107,8 @@ def scc_gpu(num_processes, num, sample_name, gpu_id):
                         del prod
                         del local_scc
                         gc.collect()
-                        start = time.time()
-                        for k in list(range(10)):
+                        
+                        for k in list(range(100)):
                             rng = np.random.default_rng(seed=k)
                             new_order = rng.permutation(num_row, 0)
                             x = obj1[new_order]
@@ -143,16 +147,14 @@ def scc_gpu(num_processes, num, sample_name, gpu_id):
 
                         path = args.output + str(l) + '/' + sample_name + '_' + str(l)
                         isExist = os.path.exists(path)
-                        end = time.time()
-                        elapsed = (end - start)
-                        print(elapsed)
+
                         if not isExist:
                             os.makedirs(path)
                         if j == 0:
-                            df2 = pd.DataFrame({"combo_name": [combo_name], 'local_scc': [local_scc_list], 'global_scc': [global_scc], 'permutation': [compare], 'p_val': [p_val], 'elapsed': [elapsed]})
+                            df2 = pd.DataFrame({"combo_name": [combo_name], 'local_scc': [local_scc_list], 'global_scc': [global_scc], 'permutation': [compare], 'p_val': [p_val]})
                             df2.to_csv(path + '/' + sample_name + '_' + str(l) + '_' + str(i) + '.csv', index=None)
                         else:
-                            df_tmp.loc[len(df_tmp.index)] = [combo_name, local_scc_list, global_scc, compare, p_val, elapsed]
+                            df_tmp.loc[len(df_tmp.index)] = [combo_name, local_scc_list, global_scc, compare, p_val]
                             df_tmp.to_csv(path + '/' + sample_name + "_" + str(l) + '_' + str(i) + '.csv', index=None)
 
         except:
@@ -174,8 +176,8 @@ def scc_gpu(num_processes, num, sample_name, gpu_id):
                 del prod
                 del local_scc
                 gc.collect()
-                start = time.time()
-                for k in list(range(10)):
+                
+                for k in list(range(100)):
                     rng = np.random.default_rng(seed=k)
                     new_order = rng.permutation(num_row, 0)
                     x = obj1[new_order]
@@ -216,18 +218,14 @@ def scc_gpu(num_processes, num, sample_name, gpu_id):
 
                 path = args.output + str(l) + '/' + sample_name + '_' + str(l)
                 isExist = os.path.exists(path)
-                end = time.time()
-                elapsed = (end - start)
-                print(elapsed)
-
                 if not isExist:
                     os.makedirs(path)
 
                 if j == 0:
-                    df2 = pd.DataFrame({"combo_name": [combo_name], 'local_scc': [local_scc_list], 'global_scc': [global_scc], 'permutation': [compare], 'p_val': [p_val], 'elapsed': [elapsed]})
+                    df2 = pd.DataFrame({"combo_name": [combo_name], 'local_scc': [local_scc_list], 'global_scc': [global_scc], 'permutation': [compare], 'p_val': [p_val]})
                     df2.to_csv(path + '/' + sample_name + '_' + str(l) + '_' + str(i) + '.csv', index=None)
                 else:
-                    df2.loc[len(df2.index)] = [combo_name, local_scc_list, global_scc, compare, p_val, elapsed]
+                    df2.loc[len(df2.index)] = [combo_name, local_scc_list, global_scc, compare, p_val]
                     df2.to_csv(path + '/' + sample_name + '_' + str(l) + '_' + str(i) + '.csv', index=None)
 
 
@@ -239,7 +237,7 @@ sample_name = [sn.split('.csv', 1)[0] for sn in sample_name]
 l = args.order
 gpu_id = args.gpu
 print("GPU-ID :" + str(gpu_id))
-print(type(gpu_id))
+
 num_processes = args.n
 df = pd.read_csv(args.input + 'enrich/' + sample_name[0] + '.csv')
 if len(df) < num_processes:
@@ -247,7 +245,6 @@ if len(df) < num_processes:
 processes = []
 print("-------- START --------")
 print("SampleList: " + str(sample_name))
-print("nCPU: " + str(num_processes))
 
 for sn in sample_name:
     print("In progress: " + sn)

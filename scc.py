@@ -8,7 +8,7 @@ import random
 import pandas as pd
 import os
 import gc
-TF_ENABLE_DEPRECATION_WARNINGS=1
+
 
 def sweep(x):
     div = x.sum(axis=1, dtype='float')
@@ -52,26 +52,18 @@ def param_args():
 
 def ssc_cpu(num_processes,num,sample_name):
     df = pd.read_csv(args.input + 'enrich/' + sample_name + '.csv')
-#         adj = np.asmatrix(pd.read_csv('csv/adj_' + l + '/' + st_gsea_all_go_names[a] + '.csv'))
-    adj_csv = pd.read_csv(args.input + 'adj_' + str(l) + '/' + sample_name + '.csv')
-    adj = np.asmatrix((adj_csv).drop(columns="Unnamed: 0").values)
-#             print("Sample name is: " + st_gsea_all_go.names[a])
-#             print("Adjacency matrix: " + order_01_trimmed_adj_matrices_list.names[b])
 
-    if len(df.columns.values.tolist()) != len(adj_csv.columns.values.tolist()):
-        raise NotImplementedError("Error: Length not same!")
-    for i in list(range(len(df.columns.values.tolist()))):
-        if df.columns.values.tolist()[i] != adj_csv.columns.values.tolist()[i]:
-            raise NotImplementedError("Error: Barcode not same!")
-            break
+    adj_csv = pd.read_csv(args.input + 'adj_' + str(l) + '/' + sample_name + '.csv')
+    try:
+        adj = np.asmatrix((adj_csv).drop(columns="Unnamed: 0").values)
+    except:
+        adj = np.asmatrix((adj_csv).values)
 
     pathways_name = list(np.concatenate(df[["Unnamed: 0"]].values.tolist()))
     pathways = np.asmatrix(df.drop(columns="Unnamed: 0").values)
     pl = len(pathways)
     row = list(range(pl))
     p_val = []
-#         n=1
-#         para = [row[i * n:(i + 1) * n] for i in range((len(row) + n - 1) // n )]
 
     num_groups = num_processes
 
@@ -108,16 +100,12 @@ def ssc_cpu(num_processes,num,sample_name):
                     if combo_name in  df_tmp['combo_name'].tolist():
                         continue
                     else:
-#                         config = tf.ConfigProto(graph_options=tf.GraphOptions(optimizer_options=tf.OptimizerOptions(opt_level=tf.OptimizerOptions.L0)))
-#                         config.gpu_options.visible_device_list = "0"
-#                         sess = tf.Session(config=config)
-#                         sess.run(tf.global_variables_initializer())
                         obj1 = np.array(scale(pathways[i,]).getT(),dtype=np.float32)
                         obj2 = np.array(scale(pathways[j,]),dtype=np.float32)
                         prod = np.matmul(obj1, obj2)
                         adj2 = np.array(sweep(adj),dtype=np.float32)
                         local_scc = np.einsum('ij,ij->i', adj2,prod)
-#                         local_scc_ = sess.run(local_scc)
+
                         local_scc_list = list(local_scc)
                         global_scc = np.float32(np.mean(local_scc_list))
                         compare = []
@@ -125,11 +113,8 @@ def ssc_cpu(num_processes,num,sample_name):
                         del prod
                         del local_scc
                         gc.collect()
-#                         sess.close()
-            #                     print("================================================ Permutation Test ===================================================================")
-                        #start = time.time()
+                        
                         for k in list(range(100)):
-#                             sess = tf.compat.v1.Session(config=config)
                             rng = np.random.default_rng(seed = k)
                             new_order = rng.permutation(num_row,0)
                             x = obj1[new_order]
@@ -139,10 +124,8 @@ def ssc_cpu(num_processes,num,sample_name):
                             prod_shuff = np.tensordot(x, y, axes=1)
                             final_shuff = np.einsum('ij,ij->i', adj2, prod_shuff)
                             scc_shuff = np.mean(final_shuff,0)
-#                             scc_shuff_ = sess.run(scc_shuff)
                             scc_shuff_ = scc_shuff
                             compare.append(scc_shuff_)
-#                             sess.close()
                             del rng
                             del new_order
                             del scc_shuff
@@ -168,10 +151,9 @@ def ssc_cpu(num_processes,num,sample_name):
 
                         p_val = (pval1 + pval2)/100
                         gc.collect()
-#                         tf.keras.backend.clear_session()
-
                         path = args.output + str(l) + '/' + sample_name + '_' + str(l) 
                         isExist = os.path.exists(path)
+
                         if not isExist:
                             os.makedirs(path)
                         if j == 0:
@@ -181,9 +163,6 @@ def ssc_cpu(num_processes,num,sample_name):
                         else:
                             df_tmp.loc[len(df_tmp.index)] = [combo_name, local_scc_list, global_scc, compare, p_val]
                             df_tmp.to_csv(path + '/' + sample_name + "_" + str(l) + '_' +str(i) + '.csv',index = None)
-                        #end = time.time()
-                        #elapsed = (end - start)
-                        #print(elapsed)
         except:
 
             for j in list(range(pl)):
@@ -191,21 +170,12 @@ def ssc_cpu(num_processes,num,sample_name):
                 pathway_i = pathways_name[i]
                 pathway_j = pathways_name[j]
                 combo_name = pathway_i + '_x_' + pathway_j
-    #                     print("====================================================================================================================================")
-    #                     print("= Sample name: " + st_gsea_all_go_names[a])
-    #                     print("= Adjacency matrix: " + order_01_trimmed_adj_matrices_list.names[b])
-    #                     print("= Combo name: [ %s ]"%(combo_name))
-    #                     print("====================================================================================================================================")
-#                 config = tf.ConfigProto(graph_options=tf.GraphOptions(optimizer_options=tf.OptimizerOptions(opt_level=tf.OptimizerOptions.L0)))
-#                 config.gpu_options.visible_device_list = "0"
-#                 sess = tf.Session(config=config)
-#                 sess.run(tf.global_variables_initializer())
                 obj1 = np.array(scale(pathways[i,]).getT(),dtype=np.float32)
                 obj2 = np.array(scale(pathways[j,]),dtype=np.float32)
                 prod = np.matmul(obj1, obj2)
                 adj2 = np.array(sweep(adj),dtype=np.float32)
                 local_scc = np.einsum('ij,ij->i', adj2,prod)
-#                 local_scc_ = sess.run(local_scc)
+
                 local_scc_list = list(local_scc)
                 global_scc = np.float32(np.mean(local_scc_list))
                 compare = []
@@ -213,11 +183,8 @@ def ssc_cpu(num_processes,num,sample_name):
                 del prod
                 del local_scc
                 gc.collect()
-#                 sess.close()
-    #                     print("================================================ Permutation Test ===================================================================")
-                #start = time.time()
+
                 for k in list(range(100)):
-#                     sess = tf.compat.v1.Session(config=config)
                     rng = np.random.default_rng(seed = k)
                     new_order = rng.permutation(num_row,0)
                     x = obj1[new_order]
@@ -227,10 +194,8 @@ def ssc_cpu(num_processes,num,sample_name):
                     prod_shuff = np.tensordot(x, y, axes=1)
                     final_shuff = np.einsum('ij,ij->i', adj2, prod_shuff)
                     scc_shuff = np.mean(final_shuff,0)
-#                     scc_shuff_ = sess.run(scc_shuff)
                     scc_shuff_ = scc_shuff
                     compare.append(scc_shuff_)
-#                     sess.close()
                     del rng
                     del new_order
                     del scc_shuff
@@ -258,10 +223,11 @@ def ssc_cpu(num_processes,num,sample_name):
                 p_val = (pval1 + pval2)/100
 
                 gc.collect()
-#                 tf.keras.backend.clear_session()
+
 
                 path = args.output + str(l) + '/' + sample_name + '_' + str(l) 
                 isExist = os.path.exists(path)
+
                 if not isExist:
                     os.makedirs(path)
                 if j == 0:
@@ -272,9 +238,6 @@ def ssc_cpu(num_processes,num,sample_name):
                     df2.loc[len(df2.index)] = [combo_name, local_scc_list, global_scc, compare, p_val]
                     df2.to_csv(path + '/' + sample_name + "_" + str(l) + '_' +str(i) + '.csv',index = None)
 
-                #end = time.time()
-                #elapsed = (end - start)
-                #print(elapsed)
                  
 parser = argparse.ArgumentParser(description='')
 args = param_args()
@@ -289,7 +252,6 @@ if len(df) < num_processes:
 processes = []
 print("-------- START --------")
 print("SampleList: " + str(sample_name))
-print("nCPU: " + str(num_processes))
 
 for sn in sample_name:
     print("In progress: " + sn)
@@ -310,5 +272,16 @@ for sn in sample_name:
         print("The Output for [" + sn + ", order: " + str(l) + "] already saved as: [" + args.output + str(l) + '/' + sn + "_" + str(l) + '.csv]')
     if not isExist:    
         df_01.to_csv(args.output + str(l) + '/' + sn + "_" + str(l) + '.csv',index = None)
-        print("The Output for [" + sn + ", order: " + str(l) + "] saved as: [" + args.output + str(l) + '/' + sn + "_" + str(l) + '.csv]')
+        print("The Output for [" + sn + ", order: " + str(l) + "] saved as: [" + args.output + str(l) + '/' + sn + "_" + str(l) + '.csv]')        
+
+
+
+
+
+
+
+        
+        
+        
+        
 
