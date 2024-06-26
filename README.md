@@ -59,7 +59,7 @@ Parameter
 [--output] # Directory for output
 [--order]  # The order of adjacency matrices
 [--n]      # The number of parallel processes.
-[--gpu]    # Assign GPU ID for GPU processing or multi-GPU processing.
+[--gpu]    # Assign GPU ID for (one or multi-)GPU processing.
 ```
 
 ## Data Format - input
