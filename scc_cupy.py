@@ -58,6 +58,11 @@ def scc_gpu(num_processes, num, sample_name, gpu_id):
     df = pd.read_csv(args.input + 'enrich/' + sample_name + '.csv')
     adj_csv = pd.read_csv(args.input + 'adj_' + str(l) + '/' + sample_name + '.csv')
     
+    for i in list(range(len(df.columns.values.tolist()))):
+            if df.columns.values.tolist()[i] != adj_csv.columns.values.tolist()[i]:
+                raise NotImplementedError("Error: Barcode not same!")
+                break
+    
     try:
         adj = np.asmatrix((adj_csv).drop(columns="Unnamed: 0").values)
     except:
