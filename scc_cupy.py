@@ -23,7 +23,10 @@ def scale(y, c=True, sc=True):
     if c:
         x -= x.mean()
     if sc and c:
-        x /= x.std()
+        if x.std() == 0:
+            print("Standard deviation is zero, scaling not applied.")
+        else:
+            x /= x.std()
     elif sc:
         x /= np.sqrt(x.pow(2).sum().div(x.count() - 1))
     return x
@@ -57,6 +60,11 @@ def scc_gpu(num_processes, num, sample_name, gpu_id):
     #print(type(gpu_id))
     df = pd.read_csv(args.input + 'enrich/' + sample_name + '.csv')
     adj_csv = pd.read_csv(args.input + 'adj_' + str(l) + '/' + sample_name + '.csv')
+    
+    for i in list(range(len(df.columns.values.tolist()))):
+            if df.columns.values.tolist()[i] != adj_csv.columns.values.tolist()[i]:
+                raise NotImplementedError("Error: Barcode not same!")
+                break
     
     try:
         adj = np.asmatrix((adj_csv).drop(columns="Unnamed: 0").values)
