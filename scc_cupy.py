@@ -23,7 +23,10 @@ def scale(y, c=True, sc=True):
     if c:
         x -= x.mean()
     if sc and c:
-        x /= x.std()
+        if x.std() == 0:
+            print("Standard deviation is zero, scaling not applied.")
+        else:
+            x /= x.std()
     elif sc:
         x /= np.sqrt(x.pow(2).sum().div(x.count() - 1))
     return x
