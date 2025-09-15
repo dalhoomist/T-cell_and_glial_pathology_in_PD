@@ -1,7 +1,8 @@
 # T-cell_and_glial_pathology_in_PD
 - Code and data for The spatial landscape of glial pathology and adaptive immune response in Parkinson's Disease
 - This repository supports CPU only. For GPU acceleration, please use the following link: https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD/tree/scc_gpu
-- Processed R data objects are available here: https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=drive_link
+- Processed R data objects are available here: [https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=drive_link](https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=sharing)
+- High-resolution images in the ST dataset are provided here: https://drive.google.com/drive/folders/18nr-9YjFOiWNQMKf2U3a5BnmnryDhrZl?usp=sharing
 # Spatial cross-correlation
 This is a Python module for spatial cross-correlation analyses
 
