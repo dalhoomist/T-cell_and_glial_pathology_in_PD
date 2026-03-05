@@ -169,7 +169,7 @@ Environment definition: `environment.yml` (conda env name: `scc`; channels: `pyt
 | Pyro (pyro-ppl) | [pyro.ai](https://pyro.ai) | 1.8.6 | N/A |
 
 The data, code, protocols, and key lab materials used and generated in this study are listed in this Key Resources Table alongside their persistent identifiers.
-**Zenodo (code archive DOI):** https://doi.org/10.5281/zenodo.XXXXXXXX
+**Zenodo (code archive DOI):** https://doi.org/10.5281/zenodo.18867341.
 
 ## Reference
 - Chen Y. A New Methodology of Spatial Cross-Correlation Analysis. PLoS ONE 10(5): e0126158. (2015) [doi:10.1371/journal.pone.0126158](https://doi.org/10.1371/journal.pone.0126158)
