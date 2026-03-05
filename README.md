@@ -137,39 +137,39 @@ sample_data/
   		    ├── ...
 		    └── ...
 ```
-
 ## Key Resources Table — Software & Algorithms
 
-Environment definition: `environment.yml` (conda env name: `scc`; channels: `pytorch`, `anaconda`, `defaults`). :contentReference[oaicite:0]{index=0}
+Environment definition: `environment.yml` (conda env name: `scc`; channels: `pytorch`, `anaconda`, `defaults`).
 
 | Software / Algorithm | Source (stable URL) | Version | RRID (if available) |
 |---|---|---:|---|
-| Python | https://www.python.org | 3.7.16 :contentReference[oaicite:1]{index=1} | N/A |
-| NVIDIA CUDA Toolkit (`cudatoolkit`) | https://developer.nvidia.com/cuda-toolkit | 11.3.1 :contentReference[oaicite:2]{index=2} | N/A |
-| PyTorch | https://pytorch.org | 1.13.0 :contentReference[oaicite:3]{index=3} | N/A |
-| TorchVision | https://pytorch.org/vision | 0.14.0 :contentReference[oaicite:4]{index=4} | N/A |
-| TorchAudio | https://pytorch.org/audio | 0.13.0 :contentReference[oaicite:5]{index=5} | N/A |
-| CuPy (CUDA 11.2 build) | https://cupy.dev | cupy-cuda112 10.6.0 :contentReference[oaicite:6]{index=6} | N/A |
-| Jupyter | https://jupyter.org | 1.0.0 :contentReference[oaicite:7]{index=7} | N/A |
-| Jupyter Notebook | https://jupyter.org | 6.5.5 :contentReference[oaicite:8]{index=8} | N/A |
-| NumPy | https://numpy.org | 1.21.5 :contentReference[oaicite:9]{index=9} | N/A |
-| SciPy | https://scipy.org | 1.7.3 :contentReference[oaicite:10]{index=10} | N/A |
-| pandas | https://pandas.pydata.org | 1.3.5 :contentReference[oaicite:11]{index=11} | N/A |
-| scikit-learn | https://scikit-learn.org | 1.0.2 :contentReference[oaicite:12]{index=12} | N/A |
-| Matplotlib | https://matplotlib.org | 3.5.3 :contentReference[oaicite:13]{index=13} | N/A |
-| seaborn | https://seaborn.pydata.org | 0.12.2 :contentReference[oaicite:14]{index=14} | N/A |
-| scikit-image | https://scikit-image.org | 0.19.3 :contentReference[oaicite:15]{index=15} | N/A |
-| OpenCV (Python) | https://opencv.org | opencv-python 4.9.0.80 :contentReference[oaicite:16]{index=16} | N/A |
-| OpenSlide (Python) | https://openslide.org | openslide-python 1.2.0 :contentReference[oaicite:17]{index=17} | N/A |
-| AnnData | https://anndata.readthedocs.io | 0.8.0 :contentReference[oaicite:18]{index=18} | N/A |
-| h5py | https://www.h5py.org | 3.8.0 :contentReference[oaicite:19]{index=19} | N/A |
-| PyTables | https://www.pytables.org | 3.7.0 :contentReference[oaicite:20]{index=20} | N/A |
-| Pillow | https://python-pillow.org | 9.5.0 :contentReference[oaicite:21]{index=21} | N/A |
-| imageio | https://imageio.readthedocs.io | 2.31.2 :contentReference[oaicite:22]{index=22} | N/A |
-| TensorBoard | https://www.tensorflow.org/tensorboard | 2.11.2 :contentReference[oaicite:23]{index=23} | N/A |
-| Pyro (pyro-ppl) | https://pyro.ai | 1.8.6 :contentReference[oaicite:24]{index=24} | N/A |
+| Python | [python.org](https://www.python.org) | 3.7.16 | N/A |
+| NVIDIA CUDA Toolkit (`cudatoolkit`) | [developer.nvidia.com/cuda-toolkit](https://developer.nvidia.com/cuda-toolkit) | 11.3.1 | N/A |
+| PyTorch | [pytorch.org](https://pytorch.org) | 1.13.0 | N/A |
+| TorchVision | [pytorch.org/vision](https://pytorch.org/vision) | 0.14.0 | N/A |
+| TorchAudio | [pytorch.org/audio](https://pytorch.org/audio) | 0.13.0 | N/A |
+| CuPy (CUDA 11.2 build) | [cupy.dev](https://cupy.dev) | cupy-cuda112 10.6.0 | N/A |
+| Jupyter | [jupyter.org](https://jupyter.org) | 1.0.0 | N/A |
+| Jupyter Notebook | [jupyter.org](https://jupyter.org) | 6.5.5 | N/A |
+| NumPy | [numpy.org](https://numpy.org) | 1.21.5 | N/A |
+| SciPy | [scipy.org](https://scipy.org) | 1.7.3 | N/A |
+| pandas | [pandas.pydata.org](https://pandas.pydata.org) | 1.3.5 | N/A |
+| scikit-learn | [scikit-learn.org](https://scikit-learn.org) | 1.0.2 | N/A |
+| Matplotlib | [matplotlib.org](https://matplotlib.org) | 3.5.3 | N/A |
+| seaborn | [seaborn.pydata.org](https://seaborn.pydata.org) | 0.12.2 | N/A |
+| scikit-image | [scikit-image.org](https://scikit-image.org) | 0.19.3 | N/A |
+| OpenCV (Python) | [opencv.org](https://opencv.org) | opencv-python 4.9.0.80 | N/A |
+| OpenSlide (Python) | [openslide.org](https://openslide.org) | openslide-python 1.2.0 | N/A |
+| AnnData | [anndata.readthedocs.io](https://anndata.readthedocs.io) | 0.8.0 | N/A |
+| h5py | [h5py.org](https://www.h5py.org) | 3.8.0 | N/A |
+| PyTables | [pytables.org](https://www.pytables.org) | 3.7.0 | N/A |
+| Pillow | [python-pillow.org](https://python-pillow.org) | 9.5.0 | N/A |
+| imageio | [imageio.readthedocs.io](https://imageio.readthedocs.io) | 2.31.2 | N/A |
+| TensorBoard | [tensorflow.org/tensorboard](https://www.tensorflow.org/tensorboard) | 2.11.2 | N/A |
+| Pyro (pyro-ppl) | [pyro.ai](https://pyro.ai) | 1.8.6 | N/A |
 
-The data, code, protocols, and key lab materials used and generated in this study are listed in a Key Resource Table alongside their persistent identifiers at [enter the Zenodo DOI]
+The data, code, protocols, and key lab materials used and generated in this study are listed in this Key Resources Table alongside their persistent identifiers.
+**Zenodo (code archive DOI):** https://doi.org/10.5281/zenodo.XXXXXXXX
 
 ## Reference
 - Chen Y. A New Methodology of Spatial Cross-Correlation Analysis. PLoS ONE 10(5): e0126158. (2015) [doi:10.1371/journal.pone.0126158](https://doi.org/10.1371/journal.pone.0126158)
