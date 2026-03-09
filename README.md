@@ -137,6 +137,36 @@ sample_data/
   		    ├── ...
 		    └── ...
 ```
+
+## Key Resources Table — Lab Materials
+
+Source for this section: Nature Portfolio reporting summary (`rs.pdf`). The study reports use of antibodies, mouse astrocytes, and 293T cells, with vendor and catalog information listed below. :contentReference[oaicite:2]{index=2}
+## Key Resources Table — Lab Materials
+
+| Resource Type | Resource | Vendor | Catalog / Identifier | RRID | Additional Information |
+|---|---|---|---|---|---|
+| Antibody | MT3, rabbit | Millipore | HPA004011 | no RRID found | Primary antibody listed in reporting summary |
+| Antibody | GFAP, chicken | Abcam | ab4674 | RRID:AB_304558 | Primary antibody |
+| Antibody | ALDH1L1, mouse | EnCor Biotechnology | MCA-2E7 | RRID:AB_2572220 | Primary antibody |
+| Antibody | CD68, mouse | Dako | ab783 | no RRID found | Primary antibody |
+| Antibody | CD69, rabbit | Booster | A00529-2 | no RRID found | Primary antibody |
+| Antibody | PD1, mouse (clone NAT105) | Cell Marque | 315M-98 | no RRID found | Primary antibody |
+| Antibody | CD103, rabbit | Abcam | ab129202 | RRID:AB_11142856 | Primary antibody |
+| Antibody | CD44, mouse | Millipore | SAB1405590 | no RRID found | Primary antibody |
+| Antibody | CD3, rabbit | Sigma | 103R-94 | no RRID found | Primary antibody |
+| Antibody | CD8, mouse, prediluted, clone 4B11 | Leica | CD8-4B11-L-CE | RRID:AB_10555292 | Primary antibody |
+| Antibody | NeuN, mouse | Millipore | MAB377 | RRID:AB_2298772 | Primary antibody |
+| Secondary antibody | Anti-Mouse Alexa Fluor 488 donkey | Invitrogen | A32766 | RRID:AB_2762823 | Secondary antibody |
+| Secondary antibody | Anti-Rabbit Alexa Fluor 568 donkey | Invitrogen | A10042 | RRID:AB_2534017 | Secondary antibody |
+| Secondary antibody | Anti-Chicken Alexa Fluor 488 donkey | Jackson ImmunoResearch | 703-545-155 | RRID:AB_2340375 | Secondary antibody |
+| Primary cells | Mouse astrocytes | ScienCell | 1800-57 | no RRID found | Cultured in Astrocyte culture medium on poly-L-lysine coated plates |
+| Cell line | 293T / HEK293T | ATCC | CRL-3216 | RRID:CVCL_0063 | Maintained in DMEM with 10% FBS and 1% Penicillin-Streptomycin |
+| Cell culture medium | Astrocyte culture medium | ScienCell | 1801 | no RRID exists | Used for mouse astrocyte culture |
+| Cell culture reagent | Fetal bovine serum | Gemini Bio | 900-108-500 | no RRID exists | Used for 293T culture |
+| Cell culture reagent | Penicillin-Streptomycin | Thermo Fisher Scientific | 15070063 | no RRID exists | Used for 293T culture |
+
+All antibodies were commercially available and validated by the manufacturers. The cell lines were validated by the manufacturer, astrocytes were authenticated using RNA-seq, and no mycoplasma contamination was detected.
+
 ## Key Resources Table — Software & Algorithms
 
 Environment definition: `environment.yml` (conda env name: `scc`; channels: `pytorch`, `anaconda`, `defaults`).
@@ -168,7 +198,8 @@ Environment definition: `environment.yml` (conda env name: `scc`; channels: `pyt
 | TensorBoard | [tensorflow.org/tensorboard](https://www.tensorflow.org/tensorboard) | 2.11.2 | N/A |
 | Pyro (pyro-ppl) | [pyro.ai](https://pyro.ai) | 1.8.6 | N/A |
 
-The data, code, protocols, and key lab materials used and generated in this study are listed in this Key Resources Table alongside their persistent identifiers.
+
+The data, code, protocols, software, and key lab materials used in this study are listed in the Key Resources Tables below, together with stable source information, catalog identifiers, and RRIDs where available.
 **Zenodo (code archive DOI):** https://doi.org/10.5281/zenodo.18867341.
 
 ## Reference
