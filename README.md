@@ -140,8 +140,7 @@ sample_data/
 
 ## Key Resources Table — Lab Materials
 
-Source for this section: Nature Portfolio reporting summary (`rs.pdf`). The study reports use of antibodies, mouse astrocytes, and 293T cells, with vendor and catalog information listed below. :contentReference[oaicite:2]{index=2}
-## Key Resources Table — Lab Materials
+Source for this section: Nature Portfolio reporting summary. The study reports use of antibodies, mouse astrocytes, and 293T cells, with vendor and catalog information listed below.
 
 | Resource Type | Resource | Vendor | Catalog / Identifier | RRID | Additional Information |
 |---|---|---|---|---|---|
