@@ -37,7 +37,7 @@ https://dx.doi.org/10.17504/protocols.io.n92ld463nl5b/v1
 
 ## Experimental Protocols
 
-All experimental procedures are documented as **recipe-style protocols with persistent identifiers**.
+All experimental procedures are documented as **recipe-style protocols**.
 
 ### Nuclei Extraction
 
