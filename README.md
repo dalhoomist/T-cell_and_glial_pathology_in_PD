@@ -1,16 +1,74 @@
 # T-cell_and_glial_pathology_in_PD
-- Code and data for The spatial landscape of glial pathology and adaptive immune response in Parkinson's Disease
-- This repository supports CPU only. For GPU acceleration, please use the following link: https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD/tree/scc_gpu
-- Processed R data objects are available here: [https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=drive_link](https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=sharing)
-- High-resolution images in the ST dataset are provided here: https://drive.google.com/drive/folders/18nr-9YjFOiWNQMKf2U3a5BnmnryDhrZl?usp=sharing
-# Spatial cross-correlation
-This is a Python module for spatial cross-correlation analyses
+
+
+Code and data for:  
+**“The spatial landscape of glial pathology and adaptive immune response in Parkinson's Disease”**
+
+---
+
+## Overview
+
+This repository contains code, processed data, and analysis pipelines for spatial cross-correlation analysis of cellular interactions in Parkinson’s disease tissue.
+
+- CPU-compatible implementation (GPU version available below)
+- Modular spatial cross-correlation (SCC) framework
+- Reproducible workflows aligned with ASAP Open Science requirements
+
+**GPU version:**  
+https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD/tree/scc_gpu
+
+---
+
+## Data Availability
+
+Processed data:
+- https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=sharing  
+
+High-resolution spatial transcriptomics images:
+- https://drive.google.com/drive/folders/18nr-9YjFOiWNQMKf2U3a5BnmnryDhrZl?usp=sharing  
+
+**Code archive (Zenodo DOI):**  
+https://doi.org/10.5281/zenodo.18867341  
+
+**Protocols (protocols.io DOI):**  
+https://dx.doi.org/10.17504/protocols.io.n92ld463nl5b/v1  
+
+---
+
+## Experimental Protocols
+
+All experimental procedures are documented as **recipe-style protocols with persistent identifiers**.
+
+### Nuclei Extraction
+
+Nuclei were extracted from OCT-embedded brain blocks or liquid nitrogen vapor–frozen GBM tissue using the following protocol:
+
+> Al-Dalahmah O. (2026)  
+> *Nuclei Extraction from OCT-Embedded Brain Blocks or Liquid Nitrogen Vapor-Frozen GBM Brain Tissue*  
+> protocols.io  
+> DOI: https://dx.doi.org/10.17504/protocols.io.n92ld463nl5b/v1  
+
+This protocol includes:
+- Tissue preparation and handling  
+- Nuclei isolation workflow  
+- Buffer compositions  
+- Quality control steps  
+
+This protocol corresponds directly to the experimental procedures described in the manuscript Methods.
+
+---
+# Spatial Cross-Correlation Module
+
+Python implementation for spatial cross-correlation (SCC) analysis.
 
 <img src="ssc_image.png" width=1000/>
 
+---
+
 ## Installation
+
 ```bash
-$ git clone https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD.git
+git clone https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD.git
 ```
 
 ## Set up Environment
@@ -24,10 +82,10 @@ Pandas: 1.3.5
 
 You can build the environment with Anaconda(or miniconda):
 ```bash
-$ conda create -n scc python==3.7
-$ conda activate scc
-(scc) $ cd T-cell_and_glial_pathology_in_PD
-(scc) $ pip install -r requirements.txt
+conda create -n scc python==3.7
+conda activate scc
+cd T-cell_and_glial_pathology_in_PD
+pip install -r requirements.txt
 ```
 
 ## Usage - sample data
@@ -35,14 +93,14 @@ $ conda activate scc
 - As the sample outputs are already stored in the sample_data folder, executing a command for sample data will cause the program to terminate immediately upon initiation.
 - To observe the normal operation, delete some output from the path ['sample_data/out/1'] and rerun it.
 ```bash
-(scc) $ python scc.py --input sample_data/ --output sample_data/out/ --order 1 --n 10
+python scc.py --input sample_data/ --output sample_data/out/ --order 1 --n 10
 ```
 Parameter
 ```bash
-[--input]  # Directory for both the enrichment matrices and adjacency matrices.
-[--output] # Directory for output
-[--order]  # The order of adjacency matrices
-[--n]      # The number of parallel processes.
+--input   Directory containing enrichment and adjacency matrices  
+--output  Output directory  
+--order   Order of adjacency matrices  
+--n       Number of parallel processes  
 ```
 * By default, this module tries to utilize all available CPU cores for parallel execution of processes for efficient utilization.
 
@@ -142,8 +200,9 @@ sample_data/
 
 Source for this section: Nature Portfolio reporting summary. The study reports use of antibodies, mouse astrocytes, and 293T cells, with vendor and catalog information listed below.
 
-| Resource Type | Resource | Vendor | Catalog / Identifier | RRID | Additional Information |
+| Resource Type | Resource | Source | Catalog / Identifier | RRID | Additional Information |
 |---|---|---|---|---|---|
+| Protocol | Nuclei Extraction from OCT-Embedded Brain Blocks or Liquid Nitrogen Vapor-Frozen GBM Brain Tissue | protocols.io | https://dx.doi.org/10.17504/protocols.io.n92ld463nl5b/v1 | N/A | Recipe-style protocol with persistent DOI; corresponds to Methods |
 | Antibody | MT3, rabbit | Millipore | HPA004011 | no RRID found | Primary antibody listed in reporting summary |
 | Antibody | GFAP, chicken | Abcam | ab4674 | RRID:AB_304558 | Primary antibody |
 | Antibody | ALDH1L1, mouse | EnCor Biotechnology | MCA-2E7 | RRID:AB_2572220 | Primary antibody |
@@ -158,9 +217,9 @@ Source for this section: Nature Portfolio reporting summary. The study reports u
 | Secondary antibody | Anti-Mouse Alexa Fluor 488 donkey | Invitrogen | A32766 | RRID:AB_2762823 | Secondary antibody |
 | Secondary antibody | Anti-Rabbit Alexa Fluor 568 donkey | Invitrogen | A10042 | RRID:AB_2534017 | Secondary antibody |
 | Secondary antibody | Anti-Chicken Alexa Fluor 488 donkey | Jackson ImmunoResearch | 703-545-155 | RRID:AB_2340375 | Secondary antibody |
-| Primary cells | Mouse astrocytes | ScienCell | 1800-57 | no RRID found | Cultured in Astrocyte culture medium on poly-L-lysine coated plates |
-| Cell line | 293T / HEK293T | ATCC | CRL-3216 | RRID:CVCL_0063 | Maintained in DMEM with 10% FBS and 1% Penicillin-Streptomycin |
-| Cell culture medium | Astrocyte culture medium | ScienCell | 1801 | no RRID exists | Used for mouse astrocyte culture |
+| Primary cells | Mouse astrocytes | ScienCell | 1800-57 | no RRID found | Cultured in astrocyte medium on poly-L-lysine plates |
+| Cell line | HEK293T (293T) | ATCC | CRL-3216 | RRID:CVCL_0063 | Maintained in DMEM + 10% FBS + 1% Pen/Strep |
+| Cell culture medium | Astrocyte culture medium | ScienCell | 1801 | no RRID exists | Used for astrocyte culture |
 | Cell culture reagent | Fetal bovine serum | Gemini Bio | 900-108-500 | no RRID exists | Used for 293T culture |
 | Cell culture reagent | Penicillin-Streptomycin | Thermo Fisher Scientific | 15070063 | no RRID exists | Used for 293T culture |
 
@@ -201,7 +260,7 @@ Environment definition: `environment.yml` (conda env name: `scc`; channels: `pyt
 The data, code, protocols, software, and key lab materials used in this study are listed in the Key Resources Tables below, together with stable source information, catalog identifiers, and RRIDs where available.
 **Zenodo (code archive DOI):** https://doi.org/10.5281/zenodo.18867341.
 
-## Reference
+## References
 - Chen Y. A New Methodology of Spatial Cross-Correlation Analysis. PLoS ONE 10(5): e0126158. (2015) [doi:10.1371/journal.pone.0126158](https://doi.org/10.1371/journal.pone.0126158)
 - Jakubiak K. et al. The spatial landscape of glial pathology and T-cell response in Parkinson’s disease substantia nigra. bioRxiv 2024.01.08.574736; (2024) doi: https://doi.org/10.1101/2024.01.08.574736
 - Al-Dalahmah, O. et al. Re-convolving the compositional landscape of primary and recurrent glioblastoma reveals prognostic and targetable tissue states. Nat Commun 14, 2586 (2023). https://doi.org/10.1038/s41467-023-38186-1
