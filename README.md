@@ -23,7 +23,7 @@ https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD/tree/scc_gpu
 
 Processed data:
 
-- <https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=sharing>
+- <https://doi.org/10.5281/zenodo.19454949>
 
 High-resolution spatial transcriptomics images:
 
