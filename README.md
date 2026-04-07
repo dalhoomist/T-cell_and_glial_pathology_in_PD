@@ -22,10 +22,12 @@ https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD/tree/scc_gpu
 ## Data Availability
 
 Processed data:
-- https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=sharing  
+
+- <https://drive.google.com/drive/folders/1OJyNaTvuL29j1WAjF0R0eP8ozcB1IMUU?usp=sharing>
 
 High-resolution spatial transcriptomics images:
-- https://drive.google.com/drive/folders/18nr-9YjFOiWNQMKf2U3a5BnmnryDhrZl?usp=sharing  
+
+- <https://doi.org/10.5281/zenodo.19453569>
 
 **Code archive (Zenodo DOI):**  
 https://doi.org/10.5281/zenodo.18867341  
