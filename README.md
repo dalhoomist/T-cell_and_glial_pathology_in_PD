@@ -29,6 +29,11 @@ High-resolution spatial transcriptomics images:
 
 - <https://doi.org/10.5281/zenodo.19453569>
 
+
+Supplementary data:
+
+- <https://doi.org/10.5281/zenodo.19457731>
+
 **Code archive (Zenodo DOI):**  
 https://doi.org/10.5281/zenodo.18867341  
 
