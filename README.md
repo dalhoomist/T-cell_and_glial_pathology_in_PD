@@ -21,11 +21,11 @@ https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD/tree/scc_gpu
 
 ## Data Availability
 
-Processed data:
+Raw and Processed data:
 
 - <https://doi.org/10.5281/zenodo.19454949>
 
-High-resolution spatial transcriptomics images:
+High-resolution spatial transcriptomic images:
 
 - <https://doi.org/10.5281/zenodo.19453569>
 
