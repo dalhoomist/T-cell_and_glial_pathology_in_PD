@@ -23,16 +23,16 @@ https://github.com/dalhoomist/T-cell_and_glial_pathology_in_PD/tree/scc_gpu
 
 Raw and Processed data:
 
-- <https://doi.org/10.5281/zenodo.19454949>
+- <https://doi.org/10.5281/zenodo.19454950>
 
 High-resolution spatial transcriptomic images:
 
-- <https://doi.org/10.5281/zenodo.19453569>
+- <https://doi.org/10.5281/zenodo.19453570>
 
 
 Supplementary data:
 
-- <https://doi.org/10.5281/zenodo.19457731>
+- <https://doi.org/10.5281/zenodo.19457732>
 
 **Code archive (Zenodo DOI):**  
 https://doi.org/10.5281/zenodo.18867341  
